@@ -87,7 +87,7 @@ Health questionaire app which could be used to gain access to a building.
 
 ## Wireframes
 
-![HealthCheckkWireframe](HealthCheckkWireframe.png)
+![HealthCheckWireframe](HealthCheckWireframe.png)
 
 
 
