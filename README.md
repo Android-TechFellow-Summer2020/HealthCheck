@@ -88,6 +88,16 @@ Health questionaire app which could be used to gain access to a building.
 ## Wireframes
 <img src = 'https://github.com/Android-TechFellow-Summer2020/HealthCheck/blob/master/HealthCheckWireFrame.png?raw=true' height = '600px' width='475px'>
 
+## Technology Stack
+
+#### Required
+* Google Maps API
+* Firebase Database
+* Firebase Auth
+
+#### Optinal
+* Local Hospital API
+* QR Code Genarator
 
 ## Schema 
 
@@ -100,16 +110,5 @@ Health questionaire app which could be used to gain access to a building.
    | userName      | String   | name of the user |
    | locations     | ArrayofString | keep track of locations |
    
-
-### Technology Stack
-
-#### Required
-* Google Maps API
-* Firebase Database
-* Firebase Auth
-
-#### Optinal
-* Local Hospital API
-* QR Code Genarator
 
 
