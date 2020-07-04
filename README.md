@@ -86,7 +86,7 @@ Health questionaire app which could be used to gain access to a building.
   
 
 ## Wireframes
-<img src = 'https://github.com/Android-TechFellow-Summer2020/HealthCheck/blob/master/HealthCheckWireFrame.png?raw=true'>
+<img src = 'https://github.com/Android-TechFellow-Summer2020/HealthCheck/blob/master/HealthCheckWireFrame.png?raw=true' style = 'height:500px'>
 
 
 
