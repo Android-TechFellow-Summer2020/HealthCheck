@@ -101,5 +101,15 @@ Health questionaire app which could be used to gain access to a building.
    | locations     | ArrayofString | keep track of locations |
    
 
+### Technology Stack
+
+#### Required
+* Google Maps API
+* Firebase Database
+* Firebase Auth
+
+#### Optinal
+* Local Hospital API
+* QR Code Genarator
 
 
