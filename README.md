@@ -94,8 +94,6 @@ Health questionaire app which could be used to gain access to a building.
 * Google Maps API
 * Firebase Database
 * Firebase Auth
-
-#### Optinal
 * Local Hospital API
 * QR Code Genarator
 
@@ -108,7 +106,18 @@ Health questionaire app which could be used to gain access to a building.
    | ------------- | -------- | ------------|
    | userId        | String   | unique id for the user (default field) |
    | userName      | String   | name of the user |
-   | locations     | ArrayofString | keep track of locations |
+   | answersArray  | ArrayofString | keep track of locations |
+#### Answers
+
+   | Property      | Type     | Description |
+   | ------------- | -------- | ------------|
+   | answerId      | String   | unique id for the location (default field) |
+   | coordinates   | String   | location of answers|
+   | answer1        | String   | answer for a question|
+   | answer2        | String   | answer for a question|
+   | answer3        | String   | answer for a question|
+   | authorID      | String | keep track of locations |
+   
    
 
 
