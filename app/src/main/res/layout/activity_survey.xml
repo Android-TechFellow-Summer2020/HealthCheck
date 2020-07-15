@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SurveyActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/text_view_question"
+            android:text="Have you or anyone in your household had any of the following symptoms in the last 21 days: sore throat, cough, chills, body aches for unknown reasons, shortness of breath for unknown reasons, loss of smell, loss of taste, fever at or greater than 100 degrees Fahrenheit?"
+            android:textSize="20sp"
+            android:layout_above="@+id/radio_group"
+            android:layout_marginBottom="16dp"
+            android:textAlignment="center"
+            android:textColor="@android:color/black"/>
+        <RadioGroup
+            android:id="@+id/radio_group"
+            android:layout_centerVertical="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/radio_button1"
+                android:text="yes"/>
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/radio_button2"
+                android:text="no"/>
+
+        </RadioGroup>
+        <TextView
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/text_view_question2"
+            android:text="Have you or anyone in your household been tested for COVID-19?"
+            android:textSize="20sp"
+            android:layout_above="@+id/radio_group"
+            android:layout_marginBottom="16dp"
+            android:textAlignment="center"
+            android:textColor="@android:color/black"/>
+        <RadioGroup
+            android:id="@+id/radio_group2"
+            android:layout_centerVertical="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/radio2_button1"
+                android:text="yes"/>
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/radio2_button2"
+                android:text="no"/>
+
+        </RadioGroup>
+        <TextView
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/text_view_question3"
+            android:text="Have you or anyone in your household visited or received treatment in a hospital, nursing home, long-term care, or other health care facility in the past 30 days?"
+            android:textSize="20sp"
+            android:layout_above="@+id/radio_group"
+            android:layout_marginBottom="16dp"
+            android:textAlignment="center"
+            android:textColor="@android:color/black"/>
+        <RadioGroup
+            android:id="@+id/radio_group3"
+            android:layout_centerVertical="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/radio3_button1"
+                android:text="yes"/>
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/radio3_button2"
+                android:text="no"/>
+
+        </RadioGroup>
+        <TextView
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/text_view_question4"
+            android:text="Have you or anyone in your household traveled in the U.S. in the past 21 days?"
+            android:textSize="20sp"
+            android:layout_above="@+id/radio_group"
+            android:layout_marginBottom="16dp"
+            android:textAlignment="center"
+            android:textColor="@android:color/black"/>
+        <RadioGroup
+            android:id="@+id/radio_group4"
+            android:layout_centerVertical="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/radio4_button1"
+                android:text="yes"/>
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/radio4_button2"
+                android:text="no"/>
+
+        </RadioGroup>
+        <TextView
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/text_view_question5"
+            android:text="To the best of your knowledge have you been in close proximity to any individual who tested positive for COVID-19?"
+            android:textSize="20sp"
+            android:layout_above="@+id/radio_group"
+            android:layout_marginBottom="16dp"
+            android:textAlignment="center"
+            android:textColor="@android:color/black"/>
+        <RadioGroup
+            android:id="@+id/radio_group5"
+            android:layout_centerVertical="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/radio5_button1"
+                android:text="yes"/>
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/radio5_button2"
+                android:text="no"/>
+
+        </RadioGroup>
+        <TextView
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/text_view_question6"
+            android:text="Are you or anyone in your household a health care provider or emergency responder?"
+            android:textSize="20sp"
+            android:layout_above="@+id/radio_group"
+            android:layout_marginBottom="16dp"
+            android:textAlignment="center"
+            android:textColor="@android:color/black"/>
+        <RadioGroup
+            android:id="@+id/radio_group6"
+            android:layout_centerVertical="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/radio6_button1"
+                android:text="yes"/>
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/radio6_button2"
+                android:text="no"/>
+
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/text_view_selected"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/radioGroup6"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="27dp"
+            android:text="Your selection: "
+            android:textSize="20sp" />
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/radio_group6"
+            android:text="Confirm"
+            android:id="@+id/button_confirm"/>
+
+    </LinearLayout>
+
+
+
+</ScrollView>

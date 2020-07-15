@@ -1,0 +1,2 @@
+rootProject.name='HealthPass'
+include ':app'
