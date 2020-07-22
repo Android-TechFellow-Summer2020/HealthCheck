@@ -14,11 +14,15 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.HashMap;
@@ -116,7 +120,7 @@ public class SurveyActivity extends AppCompatActivity {
         FirebaseFirestore db = FirebaseFirestore.getInstance();
 
 //      Get Current User ID
-        String userID = firebaseUser.getUid();
+        final String userID = firebaseUser.getUid();
 
 //      HashMap with Answer information
         HashMap<String, Object> map = new HashMap<>();
@@ -136,6 +140,10 @@ public class SurveyActivity extends AppCompatActivity {
                     public void onSuccess(DocumentReference documentReference) {
 
                         Log.d(TAG, "DocumentSnapshot added with ID: " + documentReference.getId());
+
+//                      Add answer id to users answers array
+                        FirebaseFirestore userDB = FirebaseFirestore.getInstance();
+                        userDB.collection("users").document(userID).update("answers", FieldValue.arrayUnion(documentReference.getId()));
 
 //                      On Success Return to Main Activity
                         Intent intent = new Intent(SurveyActivity.this, MainActivity.class);
