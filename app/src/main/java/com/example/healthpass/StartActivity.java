@@ -12,16 +12,15 @@ import com.google.firebase.auth.FirebaseUser;
 public class StartActivity extends AppCompatActivity {
 
     Button login, register;
-
     FirebaseUser firebaseUser;
 
     @Override
     protected void onStart() {
         super.onStart();
 
+//      Navigate to Main Activity if user is logged in
         firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
 
-        //check if user is null
         if (firebaseUser != null){
             Intent intent = new Intent(StartActivity.this, MainActivity.class);
             startActivity(intent);
@@ -34,10 +33,11 @@ public class StartActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
 
-
+//      Button Declaration
         login = findViewById(R.id.login);
         register = findViewById(R.id.register);
 
+//       Navigate to LoginActivity
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -45,6 +45,7 @@ public class StartActivity extends AppCompatActivity {
             }
         });
 
+//       Navigate to RegisterActivity
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

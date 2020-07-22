@@ -53,6 +53,7 @@ public class SurveyActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_survey);
+
         radioGroup = findViewById(R.id.radio_group);
         radioGroup2 = findViewById(R.id.radio_group2);
         radioGroup3 = findViewById(R.id.radio_group3);
@@ -62,14 +63,17 @@ public class SurveyActivity extends AppCompatActivity {
 
         textView = findViewById(R.id.text_view_selected);
 
+//      Get current FireAuth Instance
         auth = FirebaseAuth.getInstance();
 
         Button button_confirm = findViewById((R.id.button_confirm));
 
-
+//      Submit Button On Click Listener
         button_confirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+//              Retrieve Current Selected Answer Id
                 int radioId = radioGroup.getCheckedRadioButtonId();
                 int radioId2 = radioGroup2.getCheckedRadioButtonId();
                 int radioId3 = radioGroup3.getCheckedRadioButtonId();
@@ -78,6 +82,7 @@ public class SurveyActivity extends AppCompatActivity {
                 int radioId6 = radioGroup6.getCheckedRadioButtonId();
 
 
+//              Set button to the Current Answer ID
                 radioButton = findViewById(radioId);
                 radioButton2 = findViewById(radioId2);
                 radioButton3 = findViewById(radioId3);
@@ -85,6 +90,7 @@ public class SurveyActivity extends AppCompatActivity {
                 radioButton5 = findViewById(radioId5);
                 radioButton6 = findViewById(radioId6);
 
+//              Get current Value of Selected Answer
                 String str_answer1 = radioButton.getText().toString();
                 String str_answer2 = radioButton2.getText().toString();
                 String str_answer3 = radioButton3.getText().toString();
@@ -92,7 +98,7 @@ public class SurveyActivity extends AppCompatActivity {
                 String str_answer5 = radioButton5.getText().toString();
                 String str_answer6 = radioButton6.getText().toString();
 
-
+//              Send answers to DataBase
                 setAnswers(str_answer1,str_answer2,str_answer3,str_answer4,str_answer5,str_answer6);
 
                 textView.setText("Your choice: " + radioButton.getText());
@@ -103,9 +109,16 @@ public class SurveyActivity extends AppCompatActivity {
 
     public void setAnswers(String answer1,String answer2,String answer3,String answer4,String answer5,String answer6){
 
+//      Current User Instance
         FirebaseUser firebaseUser = auth.getCurrentUser();
+
+//      Current DB Instance
         FirebaseFirestore db = FirebaseFirestore.getInstance();
+
+//      Get Current User ID
         String userID = firebaseUser.getUid();
+
+//      HashMap with Answer information
         HashMap<String, Object> map = new HashMap<>();
         map.put("id", userID);
         map.put("answer1", answer1);
@@ -115,14 +128,16 @@ public class SurveyActivity extends AppCompatActivity {
         map.put("answer5", answer5);
         map.put("answer6", answer6);
 
-        Toast.makeText(this,TAG,Toast.LENGTH_SHORT).show();
+//      Add HashMap to answers DB
         db.collection("answers")
                 .add(map)
                 .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                     @Override
                     public void onSuccess(DocumentReference documentReference) {
+
                         Log.d(TAG, "DocumentSnapshot added with ID: " + documentReference.getId());
 
+//                      On Success Return to Main Activity
                         Intent intent = new Intent(SurveyActivity.this, MainActivity.class);
                         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                         startActivity(intent);
@@ -135,8 +150,5 @@ public class SurveyActivity extends AppCompatActivity {
                     }
                 });
     }
-
-
-
 
 }

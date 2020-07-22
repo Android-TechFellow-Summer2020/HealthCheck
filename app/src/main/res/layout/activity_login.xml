@@ -44,7 +44,7 @@
         android:layout_height="wrap_content"
         android:text="Don't have an sccount? Sign up"
         android:id="@+id/txt_signup"
-        android:textColor="#FFFFFF"
+        android:textColor="#000"
         />
 
 </RelativeLayout>

@@ -16,3 +16,6 @@ google-services.json
 local.properties
 /app/app.iml
 /app/.DS_Store
+
+/app/src/main/res/values/secrets.xml
+/app/src/main/res/values/google_maps_api.xml

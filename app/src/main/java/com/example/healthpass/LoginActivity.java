@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -25,10 +26,10 @@ import com.google.firebase.database.ValueEventListener;
 
 public class LoginActivity extends AppCompatActivity {
 
+
     EditText email, password;
     Button login;
-    TextView txt_signup;
-
+    TextView txtSignUp;
     FirebaseAuth auth;
 
     @Override
@@ -36,62 +37,56 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+//      Items Declarations
         email = findViewById(R.id.email);
         password = findViewById(R.id.password);
         login = findViewById(R.id.login);
-        txt_signup = findViewById(R.id.txt_signup);
+        txtSignUp = findViewById(R.id.txt_signup);
 
+//      Initiate FirebaseAuth
         auth = FirebaseAuth.getInstance();
 
-        txt_signup.setOnClickListener(new View.OnClickListener() {
+
+//      OnClickListener that navigates to Sign up Page
+        txtSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(LoginActivity.this, RegisterActivity.class));
             }
         });
 
+//     OnClickListener for user login
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+//              Progress Bar for loading time
                 final ProgressDialog pd = new ProgressDialog(LoginActivity.this);
                 pd.setMessage("Please wait...");
                 pd.show();
 
+//              Get field values
                 String str_email = email.getText().toString();
                 String str_password = password.getText().toString();
 
+//              Check if fields are empty
                 if (TextUtils.isEmpty(str_email) || TextUtils.isEmpty(str_password)){
                     Toast.makeText(LoginActivity.this, "All fields are required!", Toast.LENGTH_SHORT).show();
                 } else {
-
+//                  Attempt top login
                     auth.signInWithEmailAndPassword(str_email, str_password)
                             .addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
                                 @Override
                                 public void onComplete(@NonNull Task<AuthResult> task) {
+
+//                                  Check if login was successful
                                     if (task.isSuccessful()) {
+//                                      Navigate to MainActivity
                                         Intent i = new Intent(LoginActivity.this , MainActivity.class);
                                         startActivity(i);
+                                        pd.dismiss();
 
-                                        DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("Users")
-                                                .child(auth.getCurrentUser().getUid());
-
-                                        reference.addValueEventListener(new ValueEventListener() {
-                                            @Override
-                                            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                                                Toast.makeText(LoginActivity.this, "LOGGED IN!!!", Toast.LENGTH_SHORT).show();
-
-                                                pd.dismiss();
-                                                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                                                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
-                                                startActivity(intent);
-                                            }
-
-                                            @Override
-                                            public void onCancelled(@NonNull DatabaseError databaseError) {
-                                                pd.dismiss();
-                                            }
-                                        });
                                     } else {
+//                                      Make a Failed Toast
                                         pd.dismiss();
                                         Toast.makeText(LoginActivity.this, "Authentication failed.", Toast.LENGTH_SHORT).show();
                                     }
