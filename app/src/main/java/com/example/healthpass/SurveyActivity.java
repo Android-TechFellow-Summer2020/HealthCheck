@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -25,7 +26,12 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
+
+import static java.lang.Boolean.FALSE;
+import static java.lang.Boolean.TRUE;
 
 public class SurveyActivity extends AppCompatActivity {
 
@@ -48,7 +54,8 @@ public class SurveyActivity extends AppCompatActivity {
     RadioButton radioButton5;
     RadioButton radioButton6;
 
-    TextView textView;
+    EditText etUserTemperature;
+
 
 
 
@@ -65,7 +72,7 @@ public class SurveyActivity extends AppCompatActivity {
         radioGroup5 = findViewById(R.id.radio_group5);
         radioGroup6 = findViewById(R.id.radio_group6);
 
-        textView = findViewById(R.id.text_view_selected);
+        etUserTemperature = findViewById(R.id.etUserTemperature);
 
 //      Get current FireAuth Instance
         auth = FirebaseAuth.getInstance();
@@ -101,62 +108,144 @@ public class SurveyActivity extends AppCompatActivity {
                 String str_answer4 = radioButton4.getText().toString();
                 String str_answer5 = radioButton5.getText().toString();
                 String str_answer6 = radioButton6.getText().toString();
-
+                float temperature = Float.parseFloat(etUserTemperature.getText().toString());
 //              Send answers to DataBase
-                setAnswers(str_answer1,str_answer2,str_answer3,str_answer4,str_answer5,str_answer6);
+                setAnswers(str_answer1,str_answer2,str_answer3,str_answer4,str_answer5,str_answer6, temperature);
 
-                textView.setText("Your choice: " + radioButton.getText());
+
             }
         });
 
     }
 
-    public void setAnswers(String answer1,String answer2,String answer3,String answer4,String answer5,String answer6){
+    public void setAnswers(final String answer1, final String answer2, final String answer3, final String answer4, final String answer5, final String answer6, final float temperature){
+
+        final Boolean pass;
+
+        //getting current date
+        final Date currentTime = Calendar.getInstance().getTime();
+
+        //checking for pass/fail criteria
+        if (answer1.equals("no") || answer2.equals("no") || answer3.equals("no") || answer4.equals("no") || answer5.equals("no") || answer6.equals("no") ||temperature < 96.8 || temperature > 100.4 ){
+            pass = FALSE;
+        } else{
+            pass =TRUE;
+        }
 
 //      Current User Instance
         FirebaseUser firebaseUser = auth.getCurrentUser();
-
 //      Current DB Instance
         FirebaseFirestore db = FirebaseFirestore.getInstance();
-
 //      Get Current User ID
         final String userID = firebaseUser.getUid();
 
+
+        //Getting fullname from user database
+        DocumentReference docRef = db.collection("users").document(userID);
+        docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                if (task.isSuccessful()) {
+                    DocumentSnapshot document = task.getResult();
+                    //Adding fullname and date to answers string
+                    String answers = document.getData().get("fullname").toString();
+                    answers += "\n" + currentTime.toString();
+                    String issues = "Issues: "+"\n";
+
+                    if(answer1.equals("no"))
+                    {
+                        issues += "User or household members have Covid-19 symptoms" + "\n";
+                    }
+                    if(answer2.equals("no"))
+                    {
+                        issues += "Not tested for Covid-19" + "\n";
+                    }
+                    if(answer3.equals("no"))
+                    {
+                        issues += "Visited hospital/healthcare facility within the past 30 days"+ "\n";
+                    }
+                    if(answer4.equals("no"))
+                    {
+                        issues += "Travelled outside the USA in the past 21 days"+ "\n";
+                    }
+                    if(answer5.equals("no"))
+                    {
+                        issues += "Have been in contact with someone who has Covid-19" + "\n";
+                    }
+                    if(answer6.equals("no"))
+                    {
+                        issues += "User or household member is a emergency responder/healthcare provider"+ "\n";
+                    }
+                    if(temperature < 96.8 || temperature > 100.4)
+                    {
+                        if(temperature < 96.8)
+                        {
+                            issues += "Low body temperature " + Float.toString(temperature) + "\n";
+                        }
+                        else
+                        {
+                            issues += "High body  temperature " + Float.toString(temperature) + "\n";
+                        }
+
+                    }
+                    if(pass == false)
+                    {
+                        answers+= issues + "\n" + "Fail";
+                    }
+                    else
+                    {
+                        answers += "Pass";
+                    }
+
+                    FirebaseFirestore userDB = FirebaseFirestore.getInstance();
+                    userDB.collection("users").document(userID).update("answers", answers);
+
+                    Intent i = new Intent(SurveyActivity.this, QRActivity.class);
+                    startActivity(i);
+                }
+                else {
+                    Log.d(TAG, "get failed with ", task.getException());
+                }
+            }
+        });
+
+
+
+
+
 //      HashMap with Answer information
-        HashMap<String, Object> map = new HashMap<>();
-        map.put("id", userID);
-        map.put("answer1", answer1);
-        map.put("answer2", answer2);
-        map.put("answer3", answer3);
-        map.put("answer4", answer4);
-        map.put("answer5", answer5);
-        map.put("answer6", answer6);
-
+//        HashMap<String, Object> map = new HashMap<>();
+//        map.put("answer1", answer1);
+//        map.put("answer2", answer2);
+//        map.put("answer3", answer3);
+//        map.put("answer4", answer4);
+//        map.put("answer5", answer5);
+//        map.put("answer6", answer6);
+//        map.put("pass", pass);
+//        map.put("date", currentTime);
 //      Add HashMap to answers DB
-        db.collection("answers")
-                .add(map)
-                .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-                    @Override
-                    public void onSuccess(DocumentReference documentReference) {
+//        db.collection("answers")
+//                .add(map)
+//                .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+//                    @Override
+//                    public void onSuccess(DocumentReference documentReference) {
+//                        Log.d(TAG, "DocumentSnapshot added with ID: " + documentReference.getId());
+//                        //                      Add answer id to users answers array
+//                        FirebaseFirestore userDB = FirebaseFirestore.getInstance();
+//                        userDB.collection("users").document(userID).update("answers", FieldValue.arrayUnion(documentReference.getId()));
+////                      On Success Return to Main Activity
+//                        Intent intent = new Intent(SurveyActivity.this, QRActivity.class);
+//                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+//                        startActivity(intent);
+//                    }
+//                })
+//                .addOnFailureListener(new OnFailureListener() {
+//                    @Override
+//                    public void onFailure(@NonNull Exception e) {
+//                        Log.w(TAG, "Error adding document", e);
+//                    }
+//                });
 
-                        Log.d(TAG, "DocumentSnapshot added with ID: " + documentReference.getId());
 
-//                      Add answer id to users answers array
-                        FirebaseFirestore userDB = FirebaseFirestore.getInstance();
-                        userDB.collection("users").document(userID).update("answers", FieldValue.arrayUnion(documentReference.getId()));
-
-//                      On Success Return to Main Activity
-                        Intent intent = new Intent(SurveyActivity.this, MainActivity.class);
-                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
-                        startActivity(intent);
-                    }
-                })
-                .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Log.w(TAG, "Error adding document", e);
-                    }
-                });
     }
-
 }

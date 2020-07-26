@@ -191,15 +191,17 @@
 
         </RadioGroup>
 
-        <TextView
-            android:id="@+id/text_view_selected"
+        <EditText
+            android:id="@+id/etUserTemperature"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/radioGroup6"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="27dp"
-            android:text="Your selection: "
-            android:textSize="20sp" />
+            android:text=""
+            android:textSize="20sp"
+            android:hint="Enter your body temperature in degrees Faranheit?"/>
+
+
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

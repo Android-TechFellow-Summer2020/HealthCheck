@@ -120,7 +120,8 @@ public class RegisterActivity extends AppCompatActivity {
                             map.put("username", username.toLowerCase());
                             map.put("fullname", fullname);
                             map.put("locations", Arrays.asList(empty));
-                            map.put("answers",Arrays.asList(empty));
+                            map.put("answers", " ");
+                            map.put("pass", false);
 
 //                          Add HashMap to users collection
                             FirebaseFirestore db = FirebaseFirestore.getInstance();
