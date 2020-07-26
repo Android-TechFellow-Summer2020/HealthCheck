@@ -200,6 +200,8 @@ public class SurveyActivity extends AppCompatActivity {
                     FirebaseFirestore userDB = FirebaseFirestore.getInstance();
                     userDB.collection("users").document(userID).update("answers", answers);
 
+                    userDB.collection("users").document(userID).update("createdAt", currentTime);
+
                     Intent i = new Intent(SurveyActivity.this, QRActivity.class);
                     startActivity(i);
                 }

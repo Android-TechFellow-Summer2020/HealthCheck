@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -14,6 +15,7 @@ import androidx.fragment.app.Fragment;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.Timestamp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
@@ -21,6 +23,8 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
@@ -30,6 +34,8 @@ public class MainActivity extends AppCompatActivity {
     Button buttonStartSurvey;
     Button btnLogout;
     Button btnQRCode;
+    Button btnLocationHistory;
+    TextView tvTimeDifference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +47,9 @@ public class MainActivity extends AppCompatActivity {
         buttonStartSurvey = findViewById(R.id.button_start_survey);
         btnLogout =findViewById(R.id.logoutBtn);
         btnQRCode = findViewById(R.id.btnQRCode);
+        btnLocationHistory = findViewById(R.id.btnLocationHistory);
+        tvTimeDifference = findViewById(R.id.tvTimeDifference);
+
 
 //      Get Current User
         final FirebaseAuth auth = FirebaseAuth.getInstance();
@@ -51,6 +60,7 @@ public class MainActivity extends AppCompatActivity {
 
         final String userID = firebaseUser.getUid();
 
+        //displayTimeDifference(db, userID);
 
 //      OnClick Listeners for buttons
         buttonStartSurvey.setOnClickListener(new View.OnClickListener() {
@@ -106,7 +116,12 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
+    btnLocationHistory.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            goToLocationHistoryActivity();
+        }
+    });
 
     }
 
@@ -117,7 +132,7 @@ public class MainActivity extends AppCompatActivity {
     }
     private void startResourceActivity() {
 //      Goes to Resource Activity
-        Intent intent = new Intent(MainActivity.this, MapsActivity.class);
+        Intent intent = new Intent(MainActivity.this, ResourcesActivity.class);
         startActivity(intent);
     }
     private void goToStartActivity() {
@@ -130,9 +145,33 @@ public class MainActivity extends AppCompatActivity {
         Intent i = new Intent(MainActivity.this, QRActivity.class);
         startActivity(i);
     }
+
+    private void goToLocationHistoryActivity() {
+        Intent i = new Intent(MainActivity.this, LocationHistoryActivity.class);
+        startActivity(i);
+    }
+
+
     private void signOut(FirebaseAuth instance)
     {
 //      Ends users session
         instance.signOut();
     }
+
+    private void displayTimeDifference(final FirebaseFirestore db, final String userID)
+    {
+        DocumentReference docRef = db.collection("users").document(userID);
+        docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                if (task.isSuccessful()) {
+                    DocumentSnapshot document = task.getResult();
+
+                } else {
+                    Log.d(TAG, "get failed with ", task.getException());
+                }
+            }
+        });
+    }
+
 }
