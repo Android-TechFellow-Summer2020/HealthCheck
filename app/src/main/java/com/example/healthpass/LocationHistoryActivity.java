@@ -75,6 +75,7 @@ public class LocationHistoryActivity extends AppCompatActivity {
                 holder.list_lat.setText(model.getLat() +"");
                 holder.list_lon.setText(model.getLon() + "");
 
+
             }
         };
 
@@ -96,6 +97,7 @@ public class LocationHistoryActivity extends AppCompatActivity {
             list_lat = itemView.findViewById(R.id.list_lat);
             list_lon = itemView.findViewById(R.id.list_lon);
         }
+
     }
 
     @Override

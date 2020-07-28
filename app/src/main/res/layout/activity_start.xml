@@ -1,21 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".StartActivity">
 
 
-
     <Button
+        android:id="@+id/login"
         android:layout_width="300dp"
         android:layout_height="40dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="300dp"
+        android:layout_below="@+id/textView"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="109dp"
+        android:layout_marginEnd="53dp"
         android:text="Log in"
-        android:id="@+id/login"
-        android:textColor="#000000"
-        />
+        android:background="@drawable/custom_button_login"
+        android:textColor="#FFF" />
+
     <Button
         android:text="Register"
         android:id="@+id/register"
@@ -24,7 +27,29 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="15dp"
         android:layout_below="@+id/login"
-        android:textColor="#000000"
+        android:background="@drawable/custom_button_login"
+        android:textColor="#FFF"
         />
+
+    <ImageView
+        android:id="@+id/ivLogo"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="200dp"
+        android:layout_marginEnd="137dp"
+        app:srcCompat="@drawable/health_pass_logo" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ivLogo"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="101dp"
+        android:text="Health Pass"
+        android:textSize="40sp"
+        android:textStyle="bold" />
 
 </RelativeLayout>
