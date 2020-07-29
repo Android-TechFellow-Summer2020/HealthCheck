@@ -5,16 +5,24 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.healthpass.models.LocationsModel;
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.MapView;
+import com.google.android.gms.maps.MapsInitializer;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -71,6 +79,8 @@ public class LocationHistoryActivity extends AppCompatActivity {
             @Override
             protected void onBindViewHolder(@NonNull LocationsViewHolder holder, int position, @NonNull LocationsModel model) {
                 Log.d(TAG, "Model: " + model.toString());
+                holder.latitude = model.getLat();
+                holder.longitude = model.getLon();
                 holder.list_date_time.setText(model.getDatetime());
                 holder.list_lat.setText(model.getLat() +"");
                 holder.list_lon.setText(model.getLon() + "");
@@ -84,20 +94,34 @@ public class LocationHistoryActivity extends AppCompatActivity {
         mFirestoreList.setAdapter(adapter);
     }
 
-    private class LocationsViewHolder extends RecyclerView.ViewHolder {
+    private class LocationsViewHolder extends RecyclerView.ViewHolder{
 
+        double latitude;
+        double longitude;
         private TextView list_date_time;
         private TextView list_lat;
         private TextView list_lon;
 
-        public LocationsViewHolder(@NonNull View itemView) {
+        public LocationsViewHolder(@NonNull final View itemView) {
             super(itemView);
-
             list_date_time = itemView.findViewById(R.id.list_date_time);
             list_lat = itemView.findViewById(R.id.list_lat);
             list_lon = itemView.findViewById(R.id.list_lon);
-        }
 
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Toast.makeText(LocationHistoryActivity.this, "OnClick ViewHolder", Toast.LENGTH_SHORT).show();
+                    Intent i = new Intent(LocationHistoryActivity.this, LocationHisotryMapsActivity.class);
+                    i.putExtra("latitude", latitude);
+                    i.putExtra("longitude", longitude);
+                    startActivity(i);
+
+                }
+            });
+
+        }
     }
 
     @Override
