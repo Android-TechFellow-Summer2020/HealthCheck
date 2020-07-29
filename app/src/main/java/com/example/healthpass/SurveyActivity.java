@@ -83,35 +83,41 @@ public class SurveyActivity extends AppCompatActivity {
         button_confirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(radioGroup.getCheckedRadioButtonId() == -1 || radioGroup2.getCheckedRadioButtonId() == -1 || radioGroup3.getCheckedRadioButtonId() == -1|| radioGroup4.getCheckedRadioButtonId() == -1|| radioGroup5.getCheckedRadioButtonId() == -1 || radioGroup6.getCheckedRadioButtonId() == -1 || etUserTemperature.getText().toString() == "" ){
+                    Toast.makeText(SurveyActivity.this, "All fields must be filled", Toast.LENGTH_SHORT).show();
+                } else{
 
 //              Retrieve Current Selected Answer Id
-                int radioId = radioGroup.getCheckedRadioButtonId();
-                int radioId2 = radioGroup2.getCheckedRadioButtonId();
-                int radioId3 = radioGroup3.getCheckedRadioButtonId();
-                int radioId4 = radioGroup4.getCheckedRadioButtonId();
-                int radioId5 = radioGroup5.getCheckedRadioButtonId();
-                int radioId6 = radioGroup6.getCheckedRadioButtonId();
+                    int radioId = radioGroup.getCheckedRadioButtonId();
+                    int radioId2 = radioGroup2.getCheckedRadioButtonId();
+                    int radioId3 = radioGroup3.getCheckedRadioButtonId();
+                    int radioId4 = radioGroup4.getCheckedRadioButtonId();
+                    int radioId5 = radioGroup5.getCheckedRadioButtonId();
+                    int radioId6 = radioGroup6.getCheckedRadioButtonId();
 
 
 //              Set button to the Current Answer ID
-                radioButton = findViewById(radioId);
-                radioButton2 = findViewById(radioId2);
-                radioButton3 = findViewById(radioId3);
-                radioButton4 = findViewById(radioId4);
-                radioButton5 = findViewById(radioId5);
-                radioButton6 = findViewById(radioId6);
+                    radioButton = findViewById(radioId);
+                    radioButton2 = findViewById(radioId2);
+                    radioButton3 = findViewById(radioId3);
+                    radioButton4 = findViewById(radioId4);
+                    radioButton5 = findViewById(radioId5);
+                    radioButton6 = findViewById(radioId6);
 
 //              Get current Value of Selected Answer
-                String str_answer1 = radioButton.getText().toString();
-                String str_answer2 = radioButton2.getText().toString();
-                String str_answer3 = radioButton3.getText().toString();
-                String str_answer4 = radioButton4.getText().toString();
-                String str_answer5 = radioButton5.getText().toString();
-                String str_answer6 = radioButton6.getText().toString();
-                float temperature = Float.parseFloat(etUserTemperature.getText().toString());
-//              Send answers to DataBase
-                setAnswers(str_answer1,str_answer2,str_answer3,str_answer4,str_answer5,str_answer6, temperature);
+                    String str_answer1 = radioButton.getText().toString();
+                    String str_answer2 = radioButton2.getText().toString();
+                    String str_answer3 = radioButton3.getText().toString();
+                    String str_answer4 = radioButton4.getText().toString();
+                    String str_answer5 = radioButton5.getText().toString();
+                    String str_answer6 = radioButton6.getText().toString();
+                    float temperature = Float.parseFloat(etUserTemperature.getText().toString());
 
+
+
+//              Send answers to DataBase
+                    setAnswers(str_answer1,str_answer2,str_answer3,str_answer4,str_answer5,str_answer6, temperature);
+                }
 
             }
         });
@@ -146,6 +152,7 @@ public class SurveyActivity extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                 if (task.isSuccessful()) {
+                    FirebaseFirestore userDB = FirebaseFirestore.getInstance();
                     DocumentSnapshot document = task.getResult();
                     //Adding fullname and date to answers string
                     String answers = document.getData().get("fullname").toString();
@@ -191,13 +198,15 @@ public class SurveyActivity extends AppCompatActivity {
                     if(pass == false)
                     {
                         answers+= issues + "\n" + "Fail";
+                        userDB.collection("users").document(userID).update("pass", false);
                     }
                     else
                     {
                         answers += "Pass";
+                        userDB.collection("users").document(userID).update("pass", true);
                     }
 
-                    FirebaseFirestore userDB = FirebaseFirestore.getInstance();
+
                     userDB.collection("users").document(userID).update("answers", answers);
 
                     userDB.collection("users").document(userID).update("createdAt", currentTime);

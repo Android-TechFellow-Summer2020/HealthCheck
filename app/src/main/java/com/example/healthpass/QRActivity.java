@@ -17,6 +17,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.google.android.gms.location.FusedLocationProviderClient;
@@ -77,6 +78,14 @@ public class QRActivity extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             DocumentSnapshot document = task.getResult();
                             QRCodeWriter qrCodeWriter = new QRCodeWriter();
+                            RelativeLayout Qr_layout = (RelativeLayout)findViewById(R.id.qr_layout);
+                            boolean checker = (boolean)document.getData().get("pass");
+                            if(checker ==false ){
+
+                                Qr_layout.setBackgroundColor(Color.parseColor("#ff7c78"));
+                            } else {
+                                Qr_layout.setBackgroundColor(Color.parseColor("#7dff8e"));
+                            }
 
                             try {
                                 BitMatrix bitMatrix = qrCodeWriter.encode(document.getData().get("answers").toString(), BarcodeFormat.QR_CODE, 400,400);

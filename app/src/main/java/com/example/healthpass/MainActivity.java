@@ -166,22 +166,25 @@ public class MainActivity extends AppCompatActivity {
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                 if (task.isSuccessful()) {
                     DocumentSnapshot document = task.getResult();
-                    Timestamp createdAt = (Timestamp) document.getData().get("createdAt");
-                    Date createdAtDate = createdAt.toDate();
-                    final Date currentTime = Calendar.getInstance().getTime();
-                    long difference = currentTime.getTime() - createdAtDate.getTime();
-                    double day = difference/86400000;
-                    difference = difference % (84600000);
-                    double hours = difference/3600000;
-                    difference %= 3600000;
-                    double minutes = difference/60000;
-                    difference %= 60000;
-                    double seconds = difference/1000;
-                    String time = String.valueOf((int)day) + " day(s), " + String.valueOf((int) hours) + " hour(s), " + String.valueOf((int) minutes) + " minute(s), " + String.valueOf((int) seconds) + " second(s)" + "\n";
-                    time += "You must update your survey after 24 hours.";
-                    tvTimeDifference.setText(time);
-                    Log.d(TAG, document.getData().get("createdAt").toString());
-
+                    if (document.getData().get("createdAt") == ""){
+                        tvTimeDifference.setText("You have yet to fill out a survey");
+                    } else {
+                        Timestamp createdAt = (Timestamp) document.getData().get("createdAt");
+                        Date createdAtDate = createdAt.toDate();
+                        final Date currentTime = Calendar.getInstance().getTime();
+                        long difference = currentTime.getTime() - createdAtDate.getTime();
+                        double day = difference/86400000;
+                        difference = difference % (84600000);
+                        double hours = difference/3600000;
+                        difference %= 3600000;
+                        double minutes = difference/60000;
+                        difference %= 60000;
+                        double seconds = difference/1000;
+                        String time = String.valueOf((int)day) + " day(s), " + String.valueOf((int) hours) + " hour(s), " + String.valueOf((int) minutes) + " minute(s), " + String.valueOf((int) seconds) + " second(s)" + "\n";
+                        time += "You must update your survey after 24 hours.";
+                        tvTimeDifference.setText(time);
+                        Log.d(TAG, document.getData().get("createdAt").toString());
+                    }
                 } else {
                     Log.d(TAG, "get failed with ", task.getException());
                 }
