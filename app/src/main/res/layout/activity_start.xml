@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".StartActivity">
+    tools:context=".StartActivity"
+    android:background="#fffceb"
+    android:layout_centerHorizontal="true" >
 
 
     <Button
@@ -12,9 +14,8 @@
         android:layout_width="300dp"
         android:layout_height="40dp"
         android:layout_below="@+id/textView"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="109dp"
-        android:layout_marginEnd="53dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
         android:text="Log in"
         android:background="@drawable/custom_button_login"
         android:textColor="#FFF" />
@@ -25,7 +26,7 @@
         android:layout_width="300dp"
         android:layout_height="40dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="30dp"
         android:layout_below="@+id/login"
         android:background="@drawable/custom_button_login"
         android:textColor="#FFF"
@@ -33,11 +34,10 @@
 
     <ImageView
         android:id="@+id/ivLogo"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="200dp"
-        android:layout_marginEnd="137dp"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="150dp"
+        android:layout_centerHorizontal="true"
         app:srcCompat="@drawable/health_pass_logo" />
 
     <TextView
@@ -45,10 +45,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/ivLogo"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="2dp"
-        android:layout_marginEnd="101dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="3dp"
         android:text="Health Pass"
+        android:textColor="#255985"
         android:textSize="40sp"
         android:textStyle="bold" />
 

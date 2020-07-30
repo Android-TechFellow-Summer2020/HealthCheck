@@ -6,13 +6,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".StartActivity">
+    tools:context=".StartActivity"
+    android:background="#fffceb">
 
     <Button
-
+        android:drawableTop="@drawable/survey_icon"
         android:id="@+id/button_start_survey"
         android:layout_width="150dp"
-        android:layout_height="150dp"
+        android:layout_height="wrap_content"
+        android:padding="20dp"
         android:layout_above="@+id/btnLocationHistory"
         android:layout_alignParentEnd="true"
         android:layout_marginStart="0dp"
@@ -21,12 +23,15 @@
         android:layout_marginBottom="40dp"
         android:background="@drawable/custom_button1"
         android:text="@string/start_survey"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:textColor="#000"/>
 
     <Button
+        android:drawableTop="@drawable/hospita_icon"
         android:id="@+id/button_resources"
         android:layout_width="150dp"
-        android:layout_height="150dp"
+        android:layout_height="wrap_content"
+        android:padding="20dp"
         android:layout_above="@+id/btnQRCode"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
@@ -51,9 +56,11 @@
         android:textColor="#FFF" />
 
     <Button
+        android:drawableTop="@drawable/qr_icon"
         android:id="@+id/btnQRCode"
         android:layout_width="151dp"
-        android:layout_height="150dp"
+        android:layout_height="wrap_content"
+        android:padding="20dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
@@ -66,30 +73,32 @@
         android:textStyle="bold" />
 
     <Button
+        android:drawableTop="@drawable/location_icon"
         android:id="@+id/btnLocationHistory"
         android:layout_width="150dp"
-        android:layout_height="150dp"
+        android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_marginStart="0dp"
         android:layout_marginTop="0dp"
         android:layout_marginEnd="31dp"
-        android:layout_marginBottom="46dp"
+        android:padding="20dp"
         android:background="@drawable/custom_button4"
+        android:layout_marginBottom="46dp"
         android:text="@string/location_history"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        app:srcCompat="@drawable/health_pass_logo" />
+
 
     <TextView
         android:id="@+id/tvTimeDifference"
-        android:layout_width="wrap_content"
-        android:layout_height="51dp"
+        android:layout_width="355dp"
+        android:layout_height="59dp"
         android:layout_above="@+id/button_resources"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="5dp"
-        android:layout_marginBottom="5dp"
+        android:layout_below="@+id/imageView2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="16dp"
         android:text="It has been 24 hours since you have attempted the survey"
         android:textAlignment="center"
         android:textSize="15sp"

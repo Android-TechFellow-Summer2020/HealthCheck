@@ -6,16 +6,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    android:id="@+id/qr_layout">
+    android:id="@+id/qr_layout"
+    android:background="#fffbe6">
 
     <TextView
         android:id="@+id/tvQRCode"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@+id/ivScannerImage"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="123dp"
-        android:layout_marginBottom="29dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="-83dp"
         android:text="Your QR Code"
         android:textSize="24sp" />
 
@@ -23,22 +23,31 @@
         android:id="@+id/ivScannerImage"
         android:layout_width="350dp"
         android:layout_height="350dp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="30dp"
-        android:layout_marginBottom="249dp" />
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="146dp" />
 
     <Button
+        android:layout_below="@+id/ivScannerImage"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
         android:id="@+id/btnGenerate"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="-2dp"
-        android:layout_marginBottom="147dp"
-        android:text="Generate" />
+        android:layout_centerHorizontal="true"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:background="@drawable/custom_button_login"
+        android:text="Generate"
+        android:textColor="#fff" />
 
-
+    <Button
+        android:id="@+id/btnHome"
+        android:layout_centerHorizontal="true"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:layout_below="@+id/btnGenerate"
+        android:background="@drawable/custom_button_login"
+        android:text="Home"
+        android:textColor="#fff" />
 
 
 </RelativeLayout>
