@@ -5,23 +5,50 @@
     xmlns:map="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#40ff0015">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Past Locations"
+        android:textAlignment="center"
+        android:textColor="#000"
+        android:textSize="40dp"
+        android:textStyle="bold"
+        android:padding="10dp"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/firestore_list"
-        android:layout_width="409dp"
-        android:layout_height="729dp"
+        android:layout_width="match_parent"
+        android:layout_height="600dp"
         android:layout_marginTop="32dp"
         android:layout_marginBottom="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-            <com.google.android.gms.maps.MapView
-                android:name="com.google.android.gms.maps.MapFragment"
-                android:id="@+id/mapLite"
-                android:layout_width="match_parent"
-                android:layout_height="150dp"
-                map:liteMode="true"
-                app:layout_constraintBottom_toBottomOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent"
+        />
+<!--            <com.google.android.gms.maps.MapView-->
+<!--                android:name="com.google.android.gms.maps.MapFragment"-->
+<!--                android:id="@+id/mapLite"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="150dp"-->
+<!--                map:liteMode="true"-->
+<!--                app:layout_constraintBottom_toBottomOf="parent"/>-->
+    <Button
+        android:id="@+id/btnHome"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:layout_below="@+id/firestore_list"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="0dp"
+        android:background="@drawable/custom_button4"
+        android:text="Home"
+        android:textColor="#000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/firestore_list" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -5,39 +5,53 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SurveyActivity">
+    tools:context=".SurveyActivity"
+    android:background="#eaffdb">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
-        <TextView
 
+        <TextView
+            android:padding="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Survey"
+            android:textAlignment="center"
+            android:textColor="#000"
+            android:textSize="40dp"
+            android:textStyle="bold" />
+
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/text_view_question"
             android:text="Have you or anyone in your household had any of the following symptoms in the last 21 days: sore throat, cough, chills, body aches for unknown reasons, shortness of breath for unknown reasons, loss of smell, loss of taste, fever at or greater than 100 degrees Fahrenheit?"
             android:textSize="20sp"
             android:layout_above="@+id/radio_group"
-            android:layout_marginBottom="16dp"
+            android:layout_marginBottom="0dp"
             android:textAlignment="center"
-            android:textColor="@android:color/black"/>
+            android:textColor="@android:color/black"
+            android:background="#9fff"/>
         <RadioGroup
             android:id="@+id/radio_group"
             android:layout_centerVertical="true"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:background="#9fff"
+            android:layout_marginBottom="10dp">
 
 
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/radio_button1"
-                android:text="yes"/>
+                android:text="Yes"/>
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/radio_button2"
-                android:text="no"/>
+                android:text="No"/>
 
         </RadioGroup>
         <TextView
@@ -48,26 +62,28 @@
             android:text="Have you or anyone in your household been tested for COVID-19?"
             android:textSize="20sp"
             android:layout_above="@+id/radio_group"
-            android:layout_marginBottom="16dp"
             android:textAlignment="center"
-            android:textColor="@android:color/black"/>
+            android:textColor="@android:color/black"
+            android:background="#9fff"/>
         <RadioGroup
             android:id="@+id/radio_group2"
             android:layout_centerVertical="true"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:background="#9fff"
+            android:layout_marginBottom="10dp">
 
 
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/radio2_button1"
-                android:text="yes"/>
+                android:text="Yes"/>
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/radio2_button2"
-                android:text="no"/>
+                android:text="No"/>
 
         </RadioGroup>
         <TextView
@@ -78,26 +94,28 @@
             android:text="Have you or anyone in your household visited or received treatment in a hospital, nursing home, long-term care, or other health care facility in the past 30 days?"
             android:textSize="20sp"
             android:layout_above="@+id/radio_group"
-            android:layout_marginBottom="16dp"
             android:textAlignment="center"
-            android:textColor="@android:color/black"/>
+            android:textColor="@android:color/black"
+            android:background="#9fff"/>
         <RadioGroup
+            android:background="#9fff"
             android:id="@+id/radio_group3"
             android:layout_centerVertical="true"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp">
 
 
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/radio3_button1"
-                android:text="yes"/>
+                android:text="Yes"/>
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/radio3_button2"
-                android:text="no"/>
+                android:text="No"/>
 
         </RadioGroup>
         <TextView
@@ -108,26 +126,28 @@
             android:text="Have you or anyone in your household traveled in the U.S. in the past 21 days?"
             android:textSize="20sp"
             android:layout_above="@+id/radio_group"
-            android:layout_marginBottom="16dp"
             android:textAlignment="center"
-            android:textColor="@android:color/black"/>
+            android:textColor="@android:color/black"
+            android:background="#9fff"/>
         <RadioGroup
+            android:background="#9fff"
             android:id="@+id/radio_group4"
             android:layout_centerVertical="true"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp">
 
 
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/radio4_button1"
-                android:text="yes"/>
+                android:text="Yes"/>
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/radio4_button2"
-                android:text="no"/>
+                android:text="No"/>
 
         </RadioGroup>
         <TextView
@@ -137,77 +157,82 @@
             android:id="@+id/text_view_question5"
             android:text="To the best of your knowledge have you been in close proximity to any individual who tested positive for COVID-19?"
             android:textSize="20sp"
-            android:layout_above="@+id/radio_group"
-            android:layout_marginBottom="16dp"
             android:textAlignment="center"
+            android:background="#9fff"
             android:textColor="@android:color/black"/>
         <RadioGroup
+            android:background="#9fff"
             android:id="@+id/radio_group5"
             android:layout_centerVertical="true"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp">
 
 
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/radio5_button1"
-                android:text="yes"/>
+                android:text="Yes"/>
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/radio5_button2"
-                android:text="no"/>
+                android:text="No"/>
 
         </RadioGroup>
         <TextView
-
+            android:background="#9fff"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/text_view_question6"
             android:text="Are you or anyone in your household a health care provider or emergency responder?"
             android:textSize="20sp"
             android:layout_above="@+id/radio_group"
-            android:layout_marginBottom="16dp"
             android:textAlignment="center"
             android:textColor="@android:color/black"/>
         <RadioGroup
+            android:background="#9fff"
             android:id="@+id/radio_group6"
             android:layout_centerVertical="true"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp">
 
 
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/radio6_button1"
-                android:text="yes"/>
+                android:text="Yes"/>
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/radio6_button2"
-                android:text="no"/>
+                android:text="No"/>
 
         </RadioGroup>
 
         <EditText
+            android:background="#9fff"
             android:id="@+id/etUserTemperature"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="27dp"
+            android:layout_marginBottom="10dp"
             android:text=""
             android:textSize="20sp"
             android:hint="Enter your body temperature in degrees Faranheit?"/>
-
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/radio_group6"
             android:text="Confirm"
-            android:id="@+id/button_confirm"/>
+            android:id="@+id/button_confirm"
+            android:textColor="#000"
+            android:background="@drawable/custom_button1"
+            android:layout_marginBottom="2dp"/>
 
     </LinearLayout>
 

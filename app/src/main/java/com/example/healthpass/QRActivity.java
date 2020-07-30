@@ -7,6 +7,7 @@ import androidx.core.content.ContextCompat;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.Color;
@@ -46,7 +47,7 @@ public class QRActivity extends AppCompatActivity {
     public static final String TAG = "QRActivity";
     private static final int REQUEST_FINE_LOCATION = 200; //??
     //EditText etEnterText;
-
+    Button btnHome;
     Button btnGenerate;
     ImageView ivScannerImage;
     @Override
@@ -67,6 +68,15 @@ public class QRActivity extends AppCompatActivity {
         //tEnterText = findViewById(R.id.etEnterText);
         btnGenerate = findViewById(R.id.btnGenerate);
         ivScannerImage = findViewById(R.id.ivScannerImage);
+        btnHome = findViewById(R.id.btnHome);
+
+        btnHome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(QRActivity.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
 
         btnGenerate.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -34,6 +35,7 @@ public class LocationHistoryActivity extends AppCompatActivity {
 
     private FirebaseFirestore db;
     private RecyclerView mFirestoreList;
+    Button btnHome;
 
     private FirestoreRecyclerAdapter adapter;
 
@@ -92,6 +94,15 @@ public class LocationHistoryActivity extends AppCompatActivity {
         mFirestoreList.setHasFixedSize(true);
         mFirestoreList.setLayoutManager(new LinearLayoutManager(this));
         mFirestoreList.setAdapter(adapter);
+        btnHome = findViewById(R.id.btnHome);
+
+        btnHome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(LocationHistoryActivity.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private class LocationsViewHolder extends RecyclerView.ViewHolder{

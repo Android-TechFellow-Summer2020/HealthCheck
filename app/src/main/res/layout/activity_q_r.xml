@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity"
     android:id="@+id/qr_layout"
-    android:background="#fffbe6">
+    android:background="#4000d5ff">
 
     <TextView
         android:id="@+id/tvQRCode"
@@ -16,8 +16,10 @@
         android:layout_above="@+id/ivScannerImage"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="-83dp"
-        android:text="Your QR Code"
-        android:textSize="24sp" />
+        android:text="Health Pass QR Code"
+        android:textColor="#000"
+        android:textSize="35dp"
+        android:textStyle="bold" />
 
     <ImageView
         android:id="@+id/ivScannerImage"
@@ -35,7 +37,7 @@
         android:layout_centerHorizontal="true"
         android:layout_width="300dp"
         android:layout_height="40dp"
-        android:background="@drawable/custom_button_login"
+        android:background="@drawable/custom_button3"
         android:text="Generate"
         android:textColor="#fff" />
 
@@ -45,7 +47,7 @@
         android:layout_width="300dp"
         android:layout_height="40dp"
         android:layout_below="@+id/btnGenerate"
-        android:background="@drawable/custom_button_login"
+        android:background="@drawable/custom_button3"
         android:text="Home"
         android:textColor="#fff" />
 
