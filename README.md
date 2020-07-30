@@ -9,8 +9,7 @@
 ## Overview
 
 ### Description
-Health questionaire app which could be used to gain access to a building.
-
+This app supports an organization's Coronavirus mitigation efforts by providing a health screening questionaire and location tracking.  The location tracking feature can be used to support contact tracing.   Once the questionaire is completed, a QR code can be generated.   When the user generates the QR code, the QR code is displayed along with a red or green background that indicates the health status of the user.  The idea is to show the QR code and status screen before entering a building.  This can be read by a scanner or a building security officer.  Since the location, date and time is stored when the QR code is generated, contact tracers can use this information in the event that someone becomes infected.
 ### App Evaluation
 - **Category:** Productivity
 - **Mobile:** Mobile first experience
