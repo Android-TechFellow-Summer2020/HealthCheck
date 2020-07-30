@@ -132,7 +132,7 @@ public class SurveyActivity extends AppCompatActivity {
         final Date currentTime = Calendar.getInstance().getTime();
 
         //checking for pass/fail criteria
-        if (answer1.equals("no") || answer2.equals("no") || answer3.equals("no") || answer4.equals("no") || answer5.equals("no") || answer6.equals("no") ||temperature < 96.8 || temperature > 100.4 ){
+        if (!answer1.equals("no") || !answer2.equals("no") || !answer3.equals("no") || !answer4.equals("no") || !answer5.equals("no") || !answer6.equals("no") ||temperature < 96.8 || temperature > 100.4 ){
             pass = FALSE;
         } else{
             pass =TRUE;
@@ -159,27 +159,27 @@ public class SurveyActivity extends AppCompatActivity {
                     answers += "\n" + currentTime.toString();
                     String issues = "Issues: "+"\n";
 
-                    if(answer1.equals("no"))
+                    if(!answer1.equals("no"))
                     {
                         issues += "User or household members have Covid-19 symptoms" + "\n";
                     }
-                    if(answer2.equals("no"))
+                    if(!answer2.equals("no"))
                     {
                         issues += "Not tested for Covid-19" + "\n";
                     }
-                    if(answer3.equals("no"))
+                    if(!answer3.equals("no"))
                     {
                         issues += "Visited hospital/healthcare facility within the past 30 days"+ "\n";
                     }
-                    if(answer4.equals("no"))
+                    if(!answer4.equals("no"))
                     {
                         issues += "Travelled outside the USA in the past 21 days"+ "\n";
                     }
-                    if(answer5.equals("no"))
+                    if(!answer5.equals("no"))
                     {
                         issues += "Have been in contact with someone who has Covid-19" + "\n";
                     }
-                    if(answer6.equals("no"))
+                    if(!answer6.equals("no"))
                     {
                         issues += "User or household member is a emergency responder/healthcare provider"+ "\n";
                     }
