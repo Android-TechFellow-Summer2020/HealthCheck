@@ -10,10 +10,13 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.codepath.asynchttpclient.AsyncHttpClient;
@@ -48,11 +51,21 @@ public class ResourcesActivity extends AppCompatActivity {
     public String Link2 = "'&outFields=*&outSR=4326&f=json";
     List<hospital> hospitals;
     RecyclerView rvHospitalList;
+    Button btnHome;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_resources);
+        btnHome = findViewById(R.id.btnHome);
+
+        btnHome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ResourcesActivity.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
 
 
         saveLocation();
@@ -71,8 +84,8 @@ public class ResourcesActivity extends AppCompatActivity {
         RequestParams params = new RequestParams();
         Log.d(TAG, "Latitude: "+ lat);
         Log.d(TAG, "Longitude: "+ lon);
-        params.put("lat", (long) lat);
-        params.put("lon", (long) lon);
+        params.put("lat", (long) 36);
+        params.put("lon", (long) -121);
         client.get("https://geo.fcc.gov/api/census/area", params, new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Headers headers, JSON json) {
@@ -160,7 +173,7 @@ public class ResourcesActivity extends AppCompatActivity {
                     public void onSuccess(Location location) {
                         // GPS location can be null if GPS is switched off
                         if (location != null) {
-                            displayRecyclerView(37, -121);
+                            displayRecyclerView(location.getLatitude(), location.getLongitude());
                             //Toast.makeText(getApplicationContext(), "Lat: " + location.getLatitude()+ " Lon: " + location.getLongitude() + "now: " + LocalDateTime.now().toString(), Toast.LENGTH_SHORT ).show();
                         }
                     }

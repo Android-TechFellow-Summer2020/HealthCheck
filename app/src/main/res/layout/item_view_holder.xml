@@ -4,40 +4,70 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/clContainer"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="50dp"
+    android:layout_marginTop="8dp"
+    android:padding="5dp"
+    android:background="#dfff">
 
     <TextView
-        android:id="@+id/tvCity"
+        android:id="@+id/hospital_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="City"
-        android:textSize="8sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.649"
+        android:layout_marginStart="30dp"
+        android:text="Hospital Name"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="44dp" />
+        tools:layout_editor_absoluteY="-6dp" />
+
+    <TextView
+        android:id="@+id/city"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="212dp"
+        android:text="City"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="-6dp" />
+    <TextView
+        android:id="@+id/zip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="325dp"
+        android:text="Zip Code"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="-6dp" />
+    <TextView
+        android:id="@+id/tvCity"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="20dp"
+        android:text="City"
+        app:layout_constraintStart_toEndOf="@+id/tvHospitalName"
+        app:layout_constraintTop_toTopOf="parent"
+        android:textAlignment="center"
+        android:textColor="#000" />
 
     <TextView
         android:id="@+id/tvZipCode"
-        android:layout_width="wrap_content"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="44dp"
-        android:text="Zip Code"
-        android:textSize="8sp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="20dp"
+        android:text="zipcode"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.909"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toEndOf="@+id/list_lat"
+        app:layout_constraintTop_toTopOf="parent"
+        android:textColor="#000"
+        android:textAlignment="center"/>
 
     <TextView
         android:id="@+id/tvHospitalName"
-        android:layout_width="wrap_content"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="44dp"
-        android:text="This is Hospital Name"
-        android:textSize="8sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.102"
+        android:layout_marginTop="20dp"
+        android:text="Hospital Name"
+        android:textColor="#000"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:textAlignment="center"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

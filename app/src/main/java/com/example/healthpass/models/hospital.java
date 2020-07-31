@@ -15,7 +15,7 @@ public class hospital {
     String zipCode;
     String licensedBeds;
     String ICUBeds;
-    String bedUtilization;
+    double bedUtilization;
     String averageVentilatorUsage;
 
     hospital()
@@ -75,7 +75,7 @@ public class hospital {
         return ICUBeds;
     }
 
-    public String getBedUtilization() {
+    public double getBedUtilization() {
         return bedUtilization;
     }
 
@@ -93,7 +93,7 @@ public class hospital {
         zipCode = jsonObject.getString("HQ_ZIP_CODE");
         licensedBeds = jsonObject.getString("NUM_LICENSED_BEDS");
         ICUBeds = jsonObject.getString("NUM_ICU_BEDS");
-        bedUtilization = jsonObject.getString("BED_UTILIZATION");
+        bedUtilization = jsonObject.getDouble("BED_UTILIZATION");
         averageVentilatorUsage = jsonObject.getString("AVG_VENTILATOR_USAGE");
 
     }

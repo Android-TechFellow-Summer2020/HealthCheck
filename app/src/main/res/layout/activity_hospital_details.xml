@@ -4,134 +4,170 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HospitalDetailsActivity">
+    tools:context=".HospitalDetailsActivity"
+    android:background="#40ffff00">
 
     <TextView
         android:id="@+id/tvName"
-        android:layout_width="wrap_content"
+        android:layout_width="300dp"
+        android:textAlignment="center"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:text="TextView"
-        android:textSize="25sp"
+        android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:textColor="#000"/>
+
 
     <TextView
+        android:layout_marginTop="10dp"
         android:id="@+id/tvAddress"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
         android:text="TextView"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/location" />
+
+    <TextView
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="35dp"
+        android:id="@+id/tvLicensedBeds"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvAddress" />
+
+    <TextView
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="35dp"
+        android:id="@+id/tvICUBeds"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvLicensedBeds" />
+
+    <TextView
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="35dp"
+        android:id="@+id/tvBedUtilization"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvICUBeds" />
+
+    <TextView
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="35dp"
+        android:id="@+id/tvAverageVentilatorUsage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvBedUtilization" />
+
+    <Button
+        android:background="@drawable/google_maps_btn"
+        android:layout_marginTop="35dp"
+        android:id="@+id/btnSeeLocation"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:text="@string/view_on_google_maps"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView6" />
+
+    <Button
+        android:id="@+id/btnHome"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:layout_below="@+id/btnSeeLocation"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/hospital_button"
+        android:text="Back"
+        android:textColor="#000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnSeeLocation" />
+
+    <TextView
+        android:textColor="#000"
+        android:id="@+id/location"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="168dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="168dp"
+        android:text="Location"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toStartOf="@+id/tvZipCode"
+        app:layout_constraintHorizontal_bias="0.523"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvName" />
 
     <TextView
-        android:id="@+id/tvCity"
+        android:textColor="#000"
+        android:id="@+id/licensedBeds"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="TextView"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="35dp"
+        android:text="Licensed Beds:"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toStartOf="@+id/tvLicensedBeds"
+        app:layout_constraintHorizontal_bias="0.216"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvAddress" />
 
     <TextView
-        android:id="@+id/tvState"
+        android:textColor="#000"
+        android:layout_marginTop="35dp"
+        android:id="@+id/icuBeds"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="TextView"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:text="ICU Beds :"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toStartOf="@+id/tvICUBeds"
+        app:layout_constraintHorizontal_bias="0.177"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvCity" />
+        app:layout_constraintTop_toBottomOf="@+id/licensedBeds" />
 
     <TextView
-        android:id="@+id/tvCountyName"
+        android:layout_marginTop="35dp"
+        android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="TextView"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
+        android:text="Bed Utilization :"
+        android:textSize="20sp"
+        android:textColor="#000"
+        app:layout_constraintEnd_toStartOf="@+id/tvBedUtilization"
+        app:layout_constraintHorizontal_bias="0.22"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvState" />
+        app:layout_constraintTop_toBottomOf="@+id/icuBeds" />
 
     <TextView
-        android:id="@+id/tvZipCode"
+        android:textColor="#000"
+        android:layout_marginTop="35dp"
+        android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="TextView"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
+        android:text="Average Ventilator Usage :"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toStartOf="@+id/tvAverageVentilatorUsage"
+        app:layout_constraintHorizontal_bias="0.307"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvCountyName" />
-
-    <TextView
-        android:id="@+id/tvLicensedBeds"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="TextView"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvZipCode" />
-
-    <TextView
-        android:id="@+id/tvICUBeds"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="TextView"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvLicensedBeds" />
-
-    <TextView
-        android:id="@+id/tvBedUtilization"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="TextView"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvICUBeds" />
-
-    <TextView
-        android:id="@+id/tvAverageVentilatorUsage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="TextView"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvBedUtilization" />
-
-    <Button
-        android:id="@+id/btnSeeLocation"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="120dp"
-        android:text="@string/view_on_google_maps"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvAverageVentilatorUsage" />
-
+        app:layout_constraintTop_toBottomOf="@+id/textView5" />
 </androidx.constraintlayout.widget.ConstraintLayout>

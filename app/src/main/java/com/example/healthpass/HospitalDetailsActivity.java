@@ -27,7 +27,7 @@ public class HospitalDetailsActivity extends AppCompatActivity {
     TextView tvBedUtilization;
     TextView tvAverageVentilatorUsage;
     Button btnSeeLocation;
-
+    Button btnHome;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,27 +36,33 @@ public class HospitalDetailsActivity extends AppCompatActivity {
 
         tvName = findViewById(R.id.tvName);
         tvAddress = findViewById(R.id.tvAddress);
-        tvCity = findViewById(R.id.tvCity);
-        tvState = findViewById(R.id.tvState);
-        tvCountyName = findViewById(R.id.tvCountyName);
-        tvZipCode = findViewById(R.id.tvZipCode);
         tvLicensedBeds = findViewById(R.id.tvLicensedBeds);
         tvICUBeds = findViewById(R.id.tvICUBeds);
         tvBedUtilization = findViewById(R.id.tvBedUtilization);
         tvAverageVentilatorUsage = findViewById(R.id.tvAverageVentilatorUsage);
         btnSeeLocation = findViewById(R.id.btnSeeLocation);
+        btnHome = findViewById(R.id.btnHome);
 
         final hospital h = Parcels.unwrap(getIntent().getParcelableExtra("hospital"));
+
+        String address = h.getAddress() +", "+h.getCity() +", "+h.getState()+", "+h.getZipCode();
+
+        int utilization;
+        utilization = (int) (h.getBedUtilization() * 100);
         tvName.setText(h.getName());
-        tvAddress.setText(h.getAddress());
-        tvCity.setText(h.getCity());
-        tvState.setText(h.getState());
-        tvCountyName.setText(h.getCountyName());
-        tvZipCode.setText(h.getZipCode());
+        tvAddress.setText(address);
         tvLicensedBeds.setText(h.getLicensedBeds());
         tvICUBeds.setText(h.getICUBeds());
-        tvBedUtilization.setText(h.getBedUtilization());
+        tvBedUtilization.setText("% "+String.valueOf(utilization));
         tvAverageVentilatorUsage.setText(h.getAverageVentilatorUsage());
+
+        btnHome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(HospitalDetailsActivity.this, ResourcesActivity.class);
+                startActivity(intent);
+            }
+        });
 
         btnSeeLocation.setOnClickListener(new View.OnClickListener() {
             @Override

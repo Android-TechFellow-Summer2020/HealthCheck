@@ -67,9 +67,9 @@ public class HospitalsAdapter extends RecyclerView.Adapter<HospitalsAdapter.View
         }
 
         public void bind(final hospital h) {
-            tvHospitalName.setText("Hospital Name: "+h.getName());
-            tvCity.setText("City Name: "+h.getCity());
-            tvZipCode.setText("Zip Code: "+h.getZipCode());
+            tvHospitalName.setText(h.getName());
+            tvCity.setText(h.getCity());
+            tvZipCode.setText(h.getZipCode());
             clContainer.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
