@@ -59,7 +59,7 @@ public class ResourcesActivity extends AppCompatActivity {
 
     }
 
-    private void displayRecyclerView(int lat, int lon)
+    private void displayRecyclerView(double lat, double lon)
     {
         hospitals = new ArrayList<>();
         rvHospitalList = findViewById(R.id.rvHospitalList);
@@ -69,10 +69,10 @@ public class ResourcesActivity extends AppCompatActivity {
 
         final AsyncHttpClient client = new AsyncHttpClient();
         RequestParams params = new RequestParams();
-        Log.d(TAG, "Latitude: "+ 36);
-        Log.d(TAG, "Longitude: "+ -121);
-        params.put("lat", lat);
-        params.put("lon", lon);
+        Log.d(TAG, "Latitude: "+ lat);
+        Log.d(TAG, "Longitude: "+ lon);
+        params.put("lat", (long) lat);
+        params.put("lon", (long) lon);
         client.get("https://geo.fcc.gov/api/census/area", params, new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Headers headers, JSON json) {

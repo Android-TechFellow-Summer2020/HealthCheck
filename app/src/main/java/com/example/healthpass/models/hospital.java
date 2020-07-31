@@ -3,7 +3,9 @@ package com.example.healthpass.models;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.parceler.Parcel;
 
+@Parcel
 public class hospital {
     String name;
     String address;
@@ -15,6 +17,11 @@ public class hospital {
     String ICUBeds;
     String bedUtilization;
     String averageVentilatorUsage;
+
+    hospital()
+    {
+
+    }
 
     public double getLat() {
         return lat;
@@ -81,6 +88,7 @@ public class hospital {
         name = jsonObject.getString("HOSPITAL_NAME");
         address = jsonObject.getString("HQ_ADDRESS");
         city = jsonObject.getString("HQ_CITY");
+        countyName = jsonObject.getString("COUNTY_NAME");
         state = jsonObject.getString("HQ_STATE");
         zipCode = jsonObject.getString("HQ_ZIP_CODE");
         licensedBeds = jsonObject.getString("NUM_LICENSED_BEDS");

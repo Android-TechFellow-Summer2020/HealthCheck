@@ -39,6 +39,7 @@ public class LocationHisotryMapsActivity extends FragmentActivity implements OnM
         Intent intent = this.getIntent();
         double mlattitude = intent.getDoubleExtra("latitude",0);
         double mlongitude = intent.getDoubleExtra("longitude", 0);
+        String marker = intent.getStringExtra("marker");
 
         CameraPosition cameraPosition = new CameraPosition.Builder()
                 .target(new LatLng(mlattitude,mlongitude)) // My position
@@ -50,7 +51,6 @@ public class LocationHisotryMapsActivity extends FragmentActivity implements OnM
         googleMap.moveCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
 
         LatLng position = new LatLng(mlattitude,mlongitude);
-        googleMap.addMarker(new MarkerOptions().position(position)
-                .title("my marker"));
+        googleMap.addMarker(new MarkerOptions().position(position).title(marker));
     }
 }

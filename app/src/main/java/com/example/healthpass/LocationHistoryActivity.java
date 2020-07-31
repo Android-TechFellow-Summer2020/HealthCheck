@@ -123,10 +123,10 @@ public class LocationHistoryActivity extends AppCompatActivity {
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Toast.makeText(LocationHistoryActivity.this, "OnClick ViewHolder", Toast.LENGTH_SHORT).show();
                     Intent i = new Intent(LocationHistoryActivity.this, LocationHisotryMapsActivity.class);
                     i.putExtra("latitude", latitude);
                     i.putExtra("longitude", longitude);
+                    i.putExtra("marker", "Your previous location");
                     startActivity(i);
 
                 }
