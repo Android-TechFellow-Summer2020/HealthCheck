@@ -84,8 +84,8 @@ public class ResourcesActivity extends AppCompatActivity {
         RequestParams params = new RequestParams();
         Log.d(TAG, "Latitude: "+ lat);
         Log.d(TAG, "Longitude: "+ lon);
-        params.put("lat", (long) 36);
-        params.put("lon", (long) -121);
+        params.put("lat", (long) lat;
+        params.put("lon", (long) lon);
         client.get("https://geo.fcc.gov/api/census/area", params, new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Headers headers, JSON json) {
