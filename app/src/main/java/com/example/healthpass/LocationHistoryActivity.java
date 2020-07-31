@@ -64,7 +64,7 @@ public class LocationHistoryActivity extends AppCompatActivity {
 
         // Query
         //Query query = db.collection("locations").whereEqualTo("id", userID).orderBy("dateTime", Query.Direction.DESCENDING);
-        Query query = db.collection("locations").whereEqualTo("id", userID).orderBy("datetime", Query.Direction.DESCENDING) ;
+        Query query = db.collection("locations").whereEqualTo("id", userID);//.orderBy("datetime", Query.Direction.DESCENDING) ;
 
         // Recycler Options
         FirestoreRecyclerOptions<LocationsModel> options = new FirestoreRecyclerOptions.Builder<LocationsModel>()
