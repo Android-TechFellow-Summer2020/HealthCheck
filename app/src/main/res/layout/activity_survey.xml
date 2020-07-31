@@ -225,6 +225,7 @@
             android:hint="Enter your body temperature in degrees Faranheit?"/>
 
         <Button
+            android:layout_marginTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/radio_group6"

@@ -37,9 +37,9 @@
         android:layout_centerHorizontal="true"
         android:layout_width="300dp"
         android:layout_height="40dp"
-        android:background="@drawable/custom_button3"
+        android:background="@drawable/qr_code_button"
         android:text="Generate"
-        android:textColor="#fff" />
+        android:textColor="#000" />
 
     <Button
         android:id="@+id/btnHome"
@@ -47,9 +47,9 @@
         android:layout_width="300dp"
         android:layout_height="40dp"
         android:layout_below="@+id/btnGenerate"
-        android:background="@drawable/custom_button3"
+        android:background="@drawable/qr_code_button"
         android:text="Home"
-        android:textColor="#fff" />
+        android:textColor="#000" />
 
 
 </RelativeLayout>
