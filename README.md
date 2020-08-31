@@ -26,20 +26,17 @@ In case of an emergency needing hospital care (covid related or not), users can 
 
 ### 1. User Stories (Required and Optional)
 
-**Required Must-have Stories**
-* Allow users to sign up for a new account or login to an existing account
-* Have a feed that shows users a feed of locations they have been
-* Allow users to fill out questionaire 
-* Provide resources
-* Display QR Code
-* Send Notifications
+User Authentication 
+Daily Health Check Questionnaire
+QR Code Health Status Display for Facility Entry
+Location History Capture
+Nearby hospitals list and hospital capacity data
 
 **Optional Nice-to-have Stories**
 
-* Google Maps showing the locations
-* Add multiple organizations
+* Add multiple organizations (Admin authentication of organizations. Certain organizations might want customized questionaire's instead of a generic one.)
 * Doctors Note to allow access
-* Provide local hospitals and testers in Google Maps
+* Adding a feature to email results.
 
 ### 2. Screen Archetypes
 
@@ -47,18 +44,14 @@ In case of an emergency needing hospital care (covid related or not), users can 
    * The User will be able to login/Sign up
    * Use Google loging authentication
    * Users will have/create an account
-   * Displays navigation bar at the bottom
 * Home 
    * User will have the choice to view resources, questionaire, qrcode, or past locations
-   * Displays navigation bar at the bottom
 * Questionare 
     * User will be prompted with a questionaire about their health
 * Location Pages
-    * Displays users past locations
-    * Displays navigation bar at the bottom
+    * Displays users past locations on a recylcer view
 * Resource Page
-    * Displays all resources
-    * Link to local Hospitals and Testing areas
+    * Displays all nearby hospitals in a recylcer view
 
 
 ### 3. Navigation
@@ -74,18 +67,20 @@ In case of an emergency needing hospital care (covid related or not), users can 
    * QR Code Page
 * Questionaire 
    * QR Code Page
-   * Failure Page
 * QR Code Page
    * Home
-* Failure Page 
-  * Resource Page
 * Location 
   * Google Maps
   * Home
 * Google Maps 
   * Location
 * Resource Page 
-  * Home
+  * HospitalInformationView
+  * Google Maps
+* HospitalInformationView
+  * Resources
+* Google Maps
+  * Resources
   
 
 ## Wireframes
@@ -94,11 +89,12 @@ In case of an emergency needing hospital care (covid related or not), users can 
 ## Technology Stack
 
 #### Required
-* Google Maps API
-* Firebase Database
-* Firebase Auth
-* Local Hospital API
-* QR Code Genarator
+* Firebase
+* ZXING QR Code	Library	
+* Google Maps API	
+* ESRI’s DEFINITIVE HEALTHCARE: 
+* Hospital Beds API 
+* FCC Locations API
 
 ## Schema 
 
