@@ -9,8 +9,10 @@
 ## Overview
 
 ### Description
-This app supports an organization's Coronavirus mitigation efforts by providing a health screening questionaire, location tracking and finding hospitals near you incase of an emergency based on real time statistics (number of beds, ICUs, hospital occupancy, etc). The location tracking feature can be used to support contact tracing. 
+This app supports an organization's Coronavirus mitigation efforts by providing a health screening questionaire, location tracking and finding hospitals near you incase of an emergency based on real time statistics (number of beds, ICUs, hospital occupancy, etc). The location tracking feature can be used to support contact tracing.
+
 Once the questionaire is completed, a QR code is generated. When the QR Code is scanned by building security personnel, it contains vital information crucial to let someone in a public place (example: Has been in cotact with someone tested covid-postive, has been abroad within the past 15 days, etc). If the it just says the word "Pass", there is nothing to worry about. Every time the QR code is scanned, the current location of the user is stored in a recycler view (most recent location first). When clicking on any location on the recycler view, it opens up google maps with a pin at that location to see exactly where you were. This can help in contact tracing.
+
 In case of an emergency needing hospital care (covid related or not), users can find nearby hospitals through the app which is displayed on a recycler view. Clicking on any row in the recycler view allows you to view the statistics of the hospital (occupancy, address, number of beds, ICUs, etc) to make an informed decision about which hospital to go to. This is because there can be the possibility that a person goes to a hospital and realizes that all the bed are full. Our app helpd avoid that. It also allows you to open a google maps with a pin on the hospital to see the exact location.
 ### App Evaluation
 - **Category:** Productivity
