@@ -5,7 +5,7 @@
 2. [Product Spec](#Product-Spec)
 3. [Wireframes](#Wireframes)
 4. [Schema](#Schema)
-5. [Video Walkthroughs](#Video Walkthroughs)
+5. [Walkthroughs](#Walkthroughs)
 
 ## Overview
 
@@ -119,7 +119,7 @@ Nearby hospitals list and hospital capacity data
    | authorID      | String | keep track of locations |
    
    
-## Video Walkthroughs
+## Walkthroughs
 
 ### Questionaire
 
