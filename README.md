@@ -118,5 +118,26 @@ Nearby hospitals list and hospital capacity data
    | authorID      | String | keep track of locations |
    
    
+## Video Walkthroughs
 
+### Questionaire
 
+<img src='https://github.com/Android-TechFellow-Summer2020/HealthCheck/blob/master/gif1.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+
+### Nearby hospitals
+
+<img src='https://github.com/Android-TechFellow-Summer2020/HealthCheck/blob/master/gif2.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+
+### Past Locations
+
+<img src='https://github.com/Android-TechFellow-Summer2020/HealthCheck/blob/master/gif3.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+
+### QR code generator
+
+Use a scanner app on your phone to see the issues.
+
+<img src='https://github.com/Android-TechFellow-Summer2020/HealthCheck/blob/master/gif4.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+
+Use a scanner app on your phone to see the issues (It should only say "Pass" there are no issues).
+
+<img src='https://github.com/Android-TechFellow-Summer2020/HealthCheck/blob/master/gif5.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
