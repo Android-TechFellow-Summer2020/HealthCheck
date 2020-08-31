@@ -1,4 +1,4 @@
-# Health Pass - Health Questionaiore
+# Health Pass - Health Questionaire
 
 ## Table of Contents
 1. [Overview](#Overview)
