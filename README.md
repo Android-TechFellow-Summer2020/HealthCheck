@@ -2,9 +2,10 @@
 
 ## Table of Contents
 1. [Overview](#Overview)
-1. [Product Spec](#Product-Spec)
-1. [Wireframes](#Wireframes)
-2. [Schema](#Schema)
+2. [Product Spec](#Product-Spec)
+3. [Wireframes](#Wireframes)
+4. [Schema](#Schema)
+5. [Video Walkthrough](#Video Walkthrough)
 
 ## Overview
 
@@ -136,8 +137,4 @@ Nearby hospitals list and hospital capacity data
 
 Use a scanner app on your phone to see the issues.
 
-<img src='https://github.com/Android-TechFellow-Summer2020/HealthCheck/blob/master/gif4.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
-
-Use a scanner app on your phone to see the issues (It should only say "Pass" there are no issues).
-
-<img src='https://github.com/Android-TechFellow-Summer2020/HealthCheck/blob/master/gif5.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='https://github.com/Android-TechFellow-Summer2020/HealthCheck/blob/master/gif4.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />Use a scanner app on your phone to see the issues (It should only say "Pass" there are no issues).<img src='https://github.com/Android-TechFellow-Summer2020/HealthCheck/blob/master/gif5.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
