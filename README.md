@@ -110,7 +110,7 @@ Nearby hospitals list and hospital capacity data
    | createdAt| string | date, time when questionaire was filled |
    | locations| array | array of past location objects for contact tracing |
    
-### Location
+#### Location
    | Property      | Type     | Description |
    | ------------- | -------- | ------------|
    | datetime        | String   | date, time of when user was at that location |
