@@ -99,24 +99,24 @@ Nearby hospitals list and hospital capacity data
 
 ## Schema 
 
-### Models
+### Firebase Models
 #### User 
 
    | Property      | Type     | Description |
    | ------------- | -------- | ------------|
    | userId        | String   | unique id for the user (default field) |
-   | userName      | String   | name of the user |
-   | answersArray  | ArrayofString | keep track of locations |
-#### Answers
-
+   | userName      | String   | full name of the user |
+   | answers  | string | issues to store in QR Code |
+   | createdAt| string | date, time when questionaire was filled |
+   | locations| array | array of past location objects for contact tracing |
+   
+### Location
    | Property      | Type     | Description |
    | ------------- | -------- | ------------|
-   | answerId      | String   | unique id for the location (default field) |
-   | coordinates   | String   | location of answers|
-   | answer1        | String   | answer for a question|
-   | answer2        | String   | answer for a question|
-   | answer3        | String   | answer for a question|
-   | authorID      | String | keep track of locations |
+   | datetime        | String   | date, time of when user was at that location |
+   | id      | String   | Unique userId object to link the location object |
+   | lat  | number | latitude of location |
+   | lon | number | longitude of location |
    
    
 ## Walkthroughs
