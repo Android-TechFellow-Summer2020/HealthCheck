@@ -1,6 +1,7 @@
 # Health Pass - Health Questionaire
 
 <img src='https://github.com/Android-TechFellow-Summer2020/HealthCheck/blob/master/hplogov3.png' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+
 ## Table of Contents
 1. [Overview](#Overview)
 2. [Product Spec](#Product-Spec)
